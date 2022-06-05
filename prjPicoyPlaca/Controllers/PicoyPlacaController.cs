@@ -23,11 +23,11 @@ namespace prjPicoyPlaca.Controllers
             {
                 if (InputsVerifier(inputsPicoYPlaca.plateNumber, inputsPicoYPlaca.date))
                 {
-                    return RedirectToAction("Index");
+                    return View();
                 }
                 else
                 {
-                    ViewBag.Message = "Please, provide a valid Date.";
+                    ViewBag.Message = "Please, provide a valid Plate Number or Date.";
                     return View();
                 }
             }
@@ -40,11 +40,19 @@ namespace prjPicoyPlaca.Controllers
 
         public bool InputsVerifier(string plateNumber, string date)
         {
+            //Try catch Error Handler
             try
             {
                 DateTime dayPicked = DateTime.ParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 DateTime today = DateTime.Today;
 
+                //Validation of invalid Plate Number. If the plate number is invalid, it won't validate anything else.
+                if (plateNumber.Equals("0000"))
+                {
+                    return false;
+                }
+
+                //Validation of invalid Date (Dates above today's date)
                 if (dayPicked.Date >= today)
                 {
                     return true;
