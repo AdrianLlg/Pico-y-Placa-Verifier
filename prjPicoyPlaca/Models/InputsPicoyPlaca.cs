@@ -10,7 +10,7 @@ namespace prjPicoyPlaca.Models
     {
         [Display(Name = "Plate Number:", AutoGenerateFilter = false)]
         [Required(ErrorMessage = "Please, fill the information required.")]
-        [StringLength(4, MinimumLength = 3, ErrorMessage = "Please, provide a valid Plate Number.")]
+        [StringLength(4, MinimumLength = 4, ErrorMessage = "Please, provide a valid Plate Number.")]
         [RegularExpression(@"^[0-9]{0,9}$", ErrorMessage = "The entry must be numeric characters only.")]
         public string plateNumber { get; set; }
 
