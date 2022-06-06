@@ -18,6 +18,7 @@ namespace prjPicoyPlaca.Controllers
             {7, "Thursday"}, {8, "Thursday"},
             {9, "Friday"}, {0, "Friday"}
         };
+
         public TimeSpan restriction_1;
         public TimeSpan restriction_2;
         public TimeSpan restriction_3;
@@ -35,7 +36,7 @@ namespace prjPicoyPlaca.Controllers
             //Try catch Error Handler
             try
             {
-                //Convert string provided by the user to Datetime
+                //Convert string to Datetime the date provided by the user 
                 DateTime dayPicked = DateTime.ParseExact(inputsPicoYPlaca.date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
                 //Set the Hours of Pico y Placa
@@ -84,6 +85,7 @@ namespace prjPicoyPlaca.Controllers
 
         public void SetHoursPicoyPlaca()
         {
+            //Hours of restriction expressed on hours, minutes and seconds.
             restriction_1 = new TimeSpan(7, 0, 0);
             restriction_2 = new TimeSpan(9, 30, 0);
             restriction_3 = new TimeSpan(16, 0, 0);
